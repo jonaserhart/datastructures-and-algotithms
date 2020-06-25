@@ -22,14 +22,14 @@ public class QuickSort<E> implements Sort<E> {
         int left = start;
         int right = end - 1;
 
-        var pivot = collection[right];
+        var pivot = collection[end];
         E temp;
 
         while (left <= right){
             while (left <= right && comparator.compare(collection[left], pivot) < 0){
                 left ++;
             }
-            while (left <= right && comparator.compare(collection[left], pivot) > 0){
+            while (left <= right && comparator.compare(collection[right], pivot) > 0){
                 right --;
             }
             if (left <= right){
@@ -45,6 +45,6 @@ public class QuickSort<E> implements Sort<E> {
         collection[end] = temp;
 
         quickSort(collection, comparator, start, left-1);
-        quickSort(collection, comparator, right-1, end);
+        quickSort(collection, comparator, left+1, end);
     }
 }

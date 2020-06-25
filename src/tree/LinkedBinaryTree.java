@@ -94,8 +94,9 @@ public class LinkedBinaryTree<T> extends AbstractBinaryTree<T> {
         var parent = nodeToRemove.getParent();
         if(child != null)
             child.setParent(parent);
-        if(nodeToRemove == root)
+        if(nodeToRemove == root) {
             root = child;
+        }
         else{
             if(nodeToRemove == parent.getLeft())
                 parent.setLeft(child);
